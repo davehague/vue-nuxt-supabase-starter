@@ -116,6 +116,5 @@ Create a `.env` file in the root directory of the project to store secret projec
 NUXT_PUBLIC_GOOGLE_CLIENT_ID=your_google_client_id
 SUPABASE_URL=your_supabase_project_url
 SUPABASE_SCHEMA=your_supabase_schema
-SUPABASE_KEY=your_supabase_anon_key
 SUPABASE_SERVICE_KEY=your_supabase_service_key
 ```
