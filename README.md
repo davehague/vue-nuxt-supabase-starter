@@ -64,37 +64,24 @@ export default defineNuxtConfig({
 
 ### Setting up Supabase
 
-1. Refer to [this gist](https://www.davehague.com/gists/5f694889f466d18c5b48fda89ddfc14a) to create a new schema on your Supabase project.
-2. Add the variables `SUPABASE_URL` and `SUPABASE_SERVICE_KEY` to your `.env` file
-3. Create the users table in your schema:
-
+1. Add the variables `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, and `SUPABASE_SCHEMA` to your `.env` file
+2. Run the automated setup script:
    ```
-   CREATE TABLE <schema>.organizations (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL
-   );
-
-   -- Insert default organization
-   INSERT INTO <schema>.organizations (id, name)
-   VALUES (1, 'Default organization');
-
-   CREATE TABLE <schema>.users (
-   id SERIAL PRIMARY KEY,
-   organization_id INTEGER REFERENCES <schema>.organizations(id),
-   name VARCHAR(255) NOT NULL,
-   email VARCHAR(255) NOT NULL UNIQUE,
-   picture VARCHAR(1024),
-   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-   updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-   last_login TIMESTAMPTZ DEFAULT NULL
-   );
-
-   -- Enable RLS on both tables
-   ALTER TABLE <schema>.organizations ENABLE ROW LEVEL SECURITY;
-   ALTER TABLE <schema>.users ENABLE ROW LEVEL SECURITY;
+   pnpm run setup:supabase
    ```
+   This will generate a SQL script with all necessary schema setup commands.
+
+3. Go to your Supabase Dashboard
+4. Navigate to SQL Editor
+5. Copy and paste the generated SQL script
+6. Execute the script
+7. Go to Settings > API
+8. Add your schema name to the exposed schemas list
+9. Save the changes
 
 **Note**: We default to org_id = 1 in `UserService`, but modify as needed.
+
+**Background**: This approach uses Postgres schemas to allow multiple projects on Supabase's free tier. See [this gist](https://www.davehague.com/gists/5f694889f466d18c5b48fda89ddfc14a) for more details about the schema-based approach.
 
 ## Styling with Tailwind CSS
 

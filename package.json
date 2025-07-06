@@ -10,7 +10,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "setup:supabase": "node scripts/setup-supabase-schema.js"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.10.1",
@@ -24,6 +25,7 @@
     "vue": "latest"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.13.1"
+    "@nuxtjs/tailwindcss": "^6.13.1",
+    "dotenv": "^17.0.1"
   }
 }

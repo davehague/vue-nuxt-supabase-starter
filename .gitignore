@@ -26,3 +26,6 @@ logs
 # SSL cert files
 localhost-key.pem
 localhost.pem
+
+# Initial setup files
+supabase-setup-*.sql

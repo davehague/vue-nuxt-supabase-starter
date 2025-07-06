@@ -1,12 +1,30 @@
 {
   "permissions": {
     "allow": [
-      "Read(*)", "Grep(*)", "LS(*)", "Glob(*)",
-      "WebSearch(*)", "WebFetch(*)",
-      "Bash(ls:*)", "Bash(cat:*)", "Bash(find:*)", "Bash(grep:*)",
-      "Bash(npm:*)", "Bash(node:*)",
-      "Bash(pip:*)", "Bash(python:*)", "Bash(virtualenv:*)", "Bash(venv:*)", "Bash(pytest:*)",
-      "Bash(npx:*)", "Bash(pnpm:*)", "Bash(tsc:*)", "Bash(jest:*)", "Bash(eslint:*)", "Bash(prettier:*)"
+      "Read(*)",
+      "Grep(*)",
+      "LS(*)",
+      "Glob(*)",
+      "WebSearch(*)",
+      "WebFetch(*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(npm:*)",
+      "Bash(node:*)",
+      "Bash(pip:*)",
+      "Bash(python:*)",
+      "Bash(virtualenv:*)",
+      "Bash(venv:*)",
+      "Bash(pytest:*)",
+      "Bash(npx:*)",
+      "Bash(pnpm:*)",
+      "Bash(tsc:*)",
+      "Bash(jest:*)",
+      "Bash(eslint:*)",
+      "Bash(prettier:*)",
+      "Bash(pnpm add:*)"
     ]
   },
   "defaultMode": "default"
