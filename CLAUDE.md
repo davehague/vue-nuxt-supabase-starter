@@ -91,3 +91,33 @@ SUPABASE_SERVICE_KEY=your-service-key
 1. Update Supabase table via dashboard or SQL
 2. Update `types/interfaces.ts` with new fields
 3. Update `UserService` if needed for new operations
+
+
+# Tech
+
+This is a Vue project, built using Nuxt with Typescript and Tailwind CSS.  I strongly prefer to use compositional API with `<script setup>` tags, please default to that style.  When writing functions use the "arrow function" syntax (example:  `const sendWelcomeEmail = async (email: string) => {})`
+
+I also prefer this ordering:  `<template>`, followed by `<script setup lang="ts">` followed by `<style>` (but only if needed because Tailwind couldn't do something very specific).
+
+This project uses pnpm. 
+
+The project also uses Pinia as a client side store, with Pinia persisted state plugin. 
+
+We'll be using Supabase as a backend with custom authentication (not Supabase Auth). The project implements Google Sign-In for authentication, with Google ID tokens validated on the backend using the `verifyAuth()` utility in `/server/utils/auth.ts`. This project uses API endpoints (server/api) to handle connections from the frontend code, which then call services (server/services) to connect to the Supabase cloud instance. We use a supabaseServerClient utility (/server/utils/supabaseServerClient.ts) configured with a service account key to bypass RLS configurations, allowing the backend to manage data access control through our custom authentication layer. 
+
+When importing add the word "type" to the import for types, and use the "@" syntax for referring to the root of the project.  Example: `import { type Organization } from '@/types/interfaces'`
+
+Use Lucide icons.
+
+Keep mobile layout in mind when making UI changes. 
+
+Use the Nuxt `layouts` as appropriate for reusable layouts.
+
+When generating code files, try to keep them a manageable size, a few hundred lines at most.  If a file is getting too long, consider breaking it up into utility files or components and organizing them in a folder hierarchy.   When creating temporary scripts, clean them up afterwards if we solved the problem or the script is not evergreen.  Same applies for types, keep them reasonable size and organized in a folder structure as they get too long. 
+
+When creating API endpoints, consider if you should put them under test so we can validate them independently of the UI.
+
+## Conditional conditions
+When and if we get to a place where we implement emails, I prefer Mailjet.  Ask me before getting started and I'll provide a starter script. 
+
+When and if we are integrating third-party APIs ask for request and response body examples or look them up using your Web Tools.
