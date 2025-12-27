@@ -14,7 +14,7 @@ This is an opinionated starter project that to quickly spin up Nuxt based web pr
 ## Prerequisites
 
 - Node.js (version compatible with Nuxt 3)
-- npm or yarn
+- pnpm (recommended) or npm
 
 ## Getting Started
 
@@ -28,8 +28,31 @@ cd vue-nuxt-supabase-starter
 Install dependencies:
 
 ```
-npm install
+pnpm install
 ```
+
+### TypeScript Checking
+
+The project includes TypeScript checking commands to catch type errors during development:
+
+```bash
+pnpm run typecheck      # Check Vue files and TypeScript with vue-tsc
+pnpm run typecheck:tsc  # Pure TypeScript checking with tsc
+```
+
+- **`pnpm run typecheck`**: Uses `vue-tsc` to check both `.vue` files and TypeScript files for type errors
+- **`pnpm run typecheck:tsc`**: Uses the TypeScript compiler directly (`tsc --noEmit --skipLibCheck`) for pure TypeScript checking
+
+#### Checking Individual Files
+
+To check a single file instead of the entire project:
+
+```bash
+npx vue-tsc --noEmit path/to/file.vue    # For Vue files
+npx tsc --noEmit path/to/file.ts         # For TypeScript files
+```
+
+Run these commands before committing to ensure type safety across the codebase.
 
 ### Setting up Google Sign-In
 

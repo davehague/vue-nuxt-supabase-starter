@@ -11,6 +11,14 @@ This is a Vue.js + Nuxt 3 + Supabase starter template with Google OAuth authenti
 ```bash
 # Development (starts HTTPS server on https://localhost:3000)
 pnpm dev
+
+# TypeScript Checking
+pnpm run typecheck      # Check all Vue files and TypeScript with vue-tsc
+pnpm run typecheck:tsc  # Pure TypeScript checking with tsc
+
+# Check a single file
+npx vue-tsc --noEmit path/to/file.vue    # For Vue files
+npx tsc --noEmit path/to/file.ts         # For TypeScript files
 ```
 
 ## Architecture
