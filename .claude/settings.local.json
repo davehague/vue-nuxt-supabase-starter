@@ -24,7 +24,8 @@
       "Bash(jest:*)",
       "Bash(eslint:*)",
       "Bash(prettier:*)",
-      "Bash(pnpm add:*)"
+      "Bash(pnpm add:*)",
+      "Workflow(deep-research)"
     ]
   },
   "defaultMode": "default"
